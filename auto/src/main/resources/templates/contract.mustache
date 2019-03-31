@@ -1,0 +1,31 @@
+<html>
+
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
+    <form action="/contract" method="post">
+        <input type="text" name="name" placeholder="Введите фио" />
+        <input type="email" name="email" placeholder="email" />
+        <input type="number" name="id_auto" placeholder="Индетификатор автомобиля" />
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <button type="submit">Заказать</button>
+    </form>
+    <form>
+        <a href="/main">Вернуться к просмотру автомобилей</a>
+    </form>
+</div>
+
+{{#contract}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{name}}</span>
+        <i>{{email}}</i>
+    </div>
+{{/contract}}
+</body>
+</html>

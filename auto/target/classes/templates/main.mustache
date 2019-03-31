@@ -1,0 +1,38 @@
+<html>
+
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
+    <form method="post">
+        <input type="text" name="car_brand" placeholder= "Введите бренд автомобиля"/>
+        <input type="text" name="price" placeholder="Введите цену">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<div>Список сообщений</div>
+<form method="post" action="filter">
+    <input type="number" name="filter">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <button type="submit">Найти по цене</button>
+</form>
+<form>
+    <a href="/contract">Заказать автомобиль</a>
+</form>
+{{#aut}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{car_brand}}</span>
+        <i>{{price}}</i>
+        <td><a href="/delete/{{id}}">  DELETE  </a>   </td>
+        <td></td>
+        <td><a href="/update/{{id}}">  UPDATE  </a>   </td>
+    </div>
+{{/aut}}
+</body>
+</html>

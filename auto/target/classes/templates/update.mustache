@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title3>Изменение данных техникики</title3>
+</head>
+<body>
+
+<div>
+    <form name = "autos" action="/updateAuto" method="post">
+{{#autos}}
+        <input type="number" name="id" placeholder="id" value="{{id}}"/>
+        <input type="text" name="car_brand" placeholder= "Введите бренд автомобиля" value="{{car_brand}}" />
+        <input type="text" name="price" placeholder="Введите цену" value="{{price}}" />
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <button type="submit">  ОБНОВИТЬ </button>
+{{/autos}}
+    </form>
+</div>
+
+
+</body>
+</html>
